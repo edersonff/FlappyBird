@@ -17,9 +17,14 @@ public class PlayerMovement : MonoBehaviour
         gameControl = GameObject.Find("GameControl").GetComponent<GameControl>();
     }
 
+    public bool isPlaying()
+    {
+        return GameControl.isGameOver || !GameControl.isStarted;
+    }
+
     void Update()
     {
-        if (GameControl.isGameOver || !GameControl.isStarted)
+        if (isPlaying())
         {
             return;
         }
@@ -27,6 +32,15 @@ public class PlayerMovement : MonoBehaviour
         {
             jump();
         }
+    }
+
+    void FixedUpdate()
+    {
+        if (isPlaying())
+        {
+            return;
+        }
+
         playerTransform.rotation = Quaternion.Euler(0, 0, rb.velocity.y * 5);
     }
 

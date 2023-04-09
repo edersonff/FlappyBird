@@ -18,7 +18,7 @@ public class PipesGenerator : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         if (GameControl.isStarted && !GameControl.isGameOver && !startedGenerating)
         {

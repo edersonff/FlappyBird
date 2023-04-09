@@ -12,7 +12,7 @@ public class PipeController : MonoBehaviour
         player = GameObject.Find("Player");
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (transform.position.x < -10.1f)
         {
